@@ -15,11 +15,15 @@ criar uma aplicação web que consuma a API [Random User Generator](https://rand
 - Os commits no repositório Git devem ser organizados e significativos.
 - O README.md deve explicar as decisões de arquitetura, paradigmas e outras escolhas importantes feitas durante o desenvolvimento da aplicação.
 
-## Design do sistema
+## Design do Sistema
 - **frontend**: Contém o código do frontend em React, incluindo componentes, páginas e serviços para interagir com o backend e exibir os dados dos usuários.
 - **backend**: Contém o código do backend em NestJS, incluindo todo o necessário para fornecer uma API que busca dados de usuários da API Random User Generator.
 
 <img alt="System design diagram" title="System design diagram" src=".github/assets/System-design.png" />
+
+## Requisitos de Sistema Para Execução da Aplicação Localmente
+- **Node.js**: v21.6.1
+- **Npm**: 10.2.4
 
 ## Iniciando a Aplicação
 Para iniciar o backend da aplicação utilize os seguintes comandos:

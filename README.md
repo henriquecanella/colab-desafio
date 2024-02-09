@@ -34,11 +34,16 @@ A escolha da Clean Architecture com princípios de Domain-Driven Design (DDD) fo
 ## Iniciando a Aplicação
 Para iniciar o backend da aplicação utilize os seguintes comandos:
 ```
+cd backend
 npm install
 npm run start
 ```
+Para visualizar acesse no navegador: `localhost:3000`
+
 Já para iniciar o frontend da aplicação utilize os comandos:
 ```
+cd frontend
 npm install
-npm start
+npm run dev
 ```
+Para visualizar acesse no navegador: `localhost:5173`

@@ -21,6 +21,12 @@ criar uma aplicação web que consuma a API [Random User Generator](https://rand
 
 <img alt="System design diagram" title="System design diagram" src=".github/assets/System-design.png" />
 
+# Decisão de Arquitetura
+- **Clean Architecture**: A aplicação é estruturada de acordo com os princípios da Clean Architecture, mantendo uma separação clara entre as camadas.
+- **Domain-Driven Design (DDD)**: O código é organizado em torno das regras de negócio do domínio, garantindo que a estrutura da aplicação reflita o domínio do problema.
+
+A escolha da Clean Architecture com princípios de Domain-Driven Design (DDD) foi feita devido à sua capacidade de promover uma separação clara de responsabilidades, independência de frameworks, foco nas regras de negócio do domínio e testabilidade do código. Em comparação com a arquitetura MVC por exemplo, a Clean Architecture oferece uma organização mais clara do código, facilitando o desenvolvimento, teste e manutenção da aplicação. Além disso, é mais flexível e adaptável a mudanças nos requisitos de negócio e tecnologias, tornando-a uma escolha sólida para projetos de longo prazo.
+
 ## Requisitos de Sistema Para Execução da Aplicação Localmente
 - **Node.js**: v21.6.1
 - **Npm**: 10.2.4

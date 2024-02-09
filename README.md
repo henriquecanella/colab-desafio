@@ -20,3 +20,15 @@ criar uma aplicação web que consuma a API [Random User Generator](https://rand
 - **backend**: Contém o código do backend em NestJS, incluindo todo o necessário para fornecer uma API que busca dados de usuários da API Random User Generator.
 
 <img alt="System design diagram" title="System design diagram" src=".github/assets/System-design.png" />
+
+## Iniciando a Aplicação
+Para iniciar o backend da aplicação utilize os seguintes comandos:
+```
+npm install
+npm run start
+```
+Já para iniciar o frontend da aplicação utilize os comandos:
+```
+npm install
+npm start
+```

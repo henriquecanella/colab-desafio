@@ -1,0 +1,21 @@
+services:
+    frontend:
+        container_name: frontend
+        build:
+            context: ./frontend
+            dockerfile: Dockerfile
+        image: react
+        ports:
+            - "5173:5173"
+        volumes:
+            - ./frontend:/app
+    backend:
+        container_name: backend
+        build:
+            context: ./backend
+            dockerfile: Dockerfile
+        image: backend
+        ports:
+            - "3000:3000"
+        volumes:
+            - ./backend:/app

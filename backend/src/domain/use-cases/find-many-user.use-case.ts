@@ -5,10 +5,10 @@ export class FindManyUsersUseCase {
   constructor(private userRepository: UserRepository) {}
 
   async execute(
-    newSeed: string,
-    gender: string,
     results: number,
+    newSeed?: boolean,
+    gender?: string,
   ): Promise<UserEntity[]> {
-    return this.userRepository.findMany(newSeed, gender, results);
+    return this.userRepository.findMany(results, newSeed, gender);
   }
 }

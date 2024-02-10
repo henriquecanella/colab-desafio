@@ -31,7 +31,7 @@ A escolha da Clean Architecture com princípios de Domain-Driven Design (DDD) fo
 - **Node.js**: v21.6.1
 - **Npm**: 10.2.4
 
-## Iniciando a Aplicação
+## Iniciando a Aplicação Localmente
 Para iniciar o backend da aplicação utilize os seguintes comandos:
 ```
 cd backend
@@ -47,3 +47,35 @@ npm install
 npm run dev
 ```
 Para visualizar acesse no navegador: `localhost:5173`
+
+## Iniciando a Aplicação com Docker
+Para executar a stack, precisa do docker instalado na máquina. O Docker é um conjunto de produtos de plataforma como serviço que usam virtualização de nível de sistema operacional para entregar software em pacotes chamados contêineres. Os contêineres são isolados uns dos outros e agrupam seus próprios softwares, bibliotecas e arquivos de configuração.
+
+### Instalação do Docker
+Considerando que você usa uma distribuição Linux baseada em Debian, execute:
+```
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+dpkg --print-architecture
+echo  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+      "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" |   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+apt update -y
+apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+```
+
+### Instalação do Docker Compose
+O docker-compose é uma ferramenta que agilizaa o deploy de ambientes, utilizando uma forma simples, claro e padronizada. É uma forma de definir infraestrutura docker em um só arquivo, considerando rede, volumes, etc.
+```
+sudo curl -L "https://github.com/docker/compose/releases/download/v2.23.0/docker-compose-linux-x86_64" -o /usr/local/bin/docker-compose
+```
+
+### Executando a aplicação
+Para subir a aplicação dado o Docker e Docker Compose instalados rode o seguinte comando:
+```
+docker-compose up
+```
+Para encerrar a aplicação rode o comando:
+```
+docker-compose down
+```
+

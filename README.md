@@ -48,6 +48,13 @@ npm run dev
 ```
 Para visualizar acesse no navegador: `localhost:5173`
 
+### Rodando os Testes
+Para rodar os testes de unidade do backend utilize os seguintes comandos:
+```
+cd backend
+npm test
+```
+
 ## Iniciando a Aplicação com Docker
 Para executar a stack, precisa do docker instalado na máquina. O Docker é um conjunto de produtos de plataforma como serviço que usam virtualização de nível de sistema operacional para entregar software em pacotes chamados contêineres. Os contêineres são isolados uns dos outros e agrupam seus próprios softwares, bibliotecas e arquivos de configuração.
 

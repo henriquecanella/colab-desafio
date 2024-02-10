@@ -5,4 +5,3 @@ export { Login } from './login.interface';
 export { Name } from './name.interface';
 export { Picture } from './picture.interface';
 export { Register } from './register.interface';
-

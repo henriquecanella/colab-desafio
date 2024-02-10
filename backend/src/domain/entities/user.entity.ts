@@ -5,7 +5,7 @@ import {
   Dob,
   Location,
   Picture,
-  Register
+  Register,
 } from '../interfaces';
 
 export class UserEntity {

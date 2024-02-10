@@ -1,4 +1,4 @@
 export interface Register {
-  date: string,
-  age: number,
+  date: string;
+  age: number;
 }

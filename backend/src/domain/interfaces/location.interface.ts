@@ -20,5 +20,5 @@ export interface Location {
   country: string;
   postcode: number;
   coordinates: Coordinates;
-  description: Description;
+  timezone: Timezone;
 }

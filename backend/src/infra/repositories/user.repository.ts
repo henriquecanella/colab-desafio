@@ -25,6 +25,7 @@ export class UserRepositoryImpl implements UserRepository {
           results: defaultResultNumber,
         },
       });
+
       this.usersData = response.data.results;
 
       const users: UserEntity[] = this.usersData.map((userData: any) => ({
@@ -41,5 +42,18 @@ export class UserRepositoryImpl implements UserRepository {
       console.error('Error fetching users:', error);
       throw error; // You may want to handle this error more gracefully in a real application
     }
+  }
+  async findOne(email: string): Promise<UserEntity> {
+    if (this.usersData.length === 0) {
+      throw new Error('No users found');
+    }
+
+    const foundUser = this.usersData.find((user) => user.email === email);
+
+    if (!foundUser) {
+      throw new Error('User not found');
+    }
+
+    return foundUser;
   }
 }

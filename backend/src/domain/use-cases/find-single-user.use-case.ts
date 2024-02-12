@@ -7,9 +7,7 @@ import { UserRepository } from '../repositories/user.repository';
 export class FindSingleUserUseCase {
   constructor(private userRepository: UserRepository) {}
 
-  async execute(
-    email: string,
-  ): Promise<UserEntity> {
+  async execute(email: string): Promise<UserEntity> {
     return this.userRepository.findOne(email);
   }
 }

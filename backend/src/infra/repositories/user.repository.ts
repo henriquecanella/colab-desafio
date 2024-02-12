@@ -5,34 +5,32 @@ import { UserRepository } from '../../domain/repositories/user.repository';
 
 export class UserRepositoryImpl implements UserRepository {
   async findMany(
-    results: number,
-    newSeed?: boolean,
+    results: string,
+    newSeed?: string,
     gender?: string,
   ): Promise<UserEntity[]> {
     let seedToUse: string | undefined = process.env.DEFAULT_SEED;
+    const defaultResultNumber: string = results || '10';
 
-    if (newSeed === true) {
+    if (newSeed === '1') {
       seedToUse = (Math.random() + 1).toString(36).substring(7);
     }
-
     try {
       const response = await axios.get('https://randomuser.me/api', {
         params: {
           seed: seedToUse,
           gender: gender,
-          results: results,
+          results: defaultResultNumber,
         },
       });
-
       const usersData = response.data.results;
-      console.log(usersData);
 
       const users: UserEntity[] = usersData.map((userData: any) => ({
+        name: userData.name,
         email: userData.email,
         cell: userData.cell,
-        location: {
-          city: userData.location.city,
-          country: userData.location.country,
+        picture: {
+          thumbnail: userData.picture.thumbnail,
         },
       }));
 

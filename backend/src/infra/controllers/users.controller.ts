@@ -9,8 +9,8 @@ export class UsersController {
 
   @Get()
   async getUsers(
-    @Query('results') results: number,
-    @Query('newSeed') newSeed: boolean,
+    @Query('results') results: string,
+    @Query('newSeed') newSeed: string,
     @Query('gender') gender: string,
   ): Promise<UserEntity[]> {
     return this.findUsersUseCase.execute(results, newSeed, gender);

@@ -9,16 +9,16 @@ import {
 } from '../interfaces';
 
 export class UserEntity {
-  login: Login;
+  login?: Login;
   email: string;
-  phone: string;
+  phone?: string;
   cell: string;
   name: Name;
-  id: Id;
-  gender: string;
-  dob: Dob;
-  location: Location;
-  nat: string;
+  id?: Id;
+  gender?: string;
+  dob?: Dob;
+  location?: Location;
+  nat?: string;
   picture: Picture;
-  registered: Register;
+  registered?: Register;
 }

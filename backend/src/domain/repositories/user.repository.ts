@@ -6,4 +6,5 @@ export abstract class UserRepository {
     newSeed?: string,
     gender?: string,
   ): Promise<UserEntity[]>;
+  abstract findOne(email: string): Promise<UserEntity>;
 }

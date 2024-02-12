@@ -1,11 +1,15 @@
-import { Controller, Get, Query } from '@nestjs/common';
+import { Controller, Get, Query, Param } from '@nestjs/common';
 
 import { UserEntity } from '../../domain/entities/user.entity';
 import { FindManyUsersUseCase } from '../../domain/use-cases/find-many-user.use-case';
+import { FindSingleUserUseCase } from '../../domain/use-cases/find-single-user.use-case';
 
 @Controller('users')
 export class UsersController {
-  constructor(private readonly findUsersUseCase: FindManyUsersUseCase) {}
+  constructor(
+    private readonly findUsersUseCase: FindManyUsersUseCase,
+    private readonly findSingleUserUseCase: FindSingleUserUseCase,
+  ) {}
 
   @Get()
   async getUsers(
@@ -14,5 +18,10 @@ export class UsersController {
     @Query('gender') gender: string,
   ): Promise<UserEntity[]> {
     return this.findUsersUseCase.execute(results, newSeed, gender);
+  }
+
+  @Get('detail/:email')
+  async getUser(@Param('email') email: string): Promise<UserEntity> {
+    return this.findSingleUserUseCase.execute(email);
   }
 }

@@ -4,6 +4,8 @@ import { UserEntity } from '../../domain/entities/user.entity';
 import { UserRepository } from '../../domain/repositories/user.repository';
 
 export class UserRepositoryImpl implements UserRepository {
+  private usersData: UserEntity[];
+
   async findMany(
     results: string,
     newSeed?: string,
@@ -23,9 +25,10 @@ export class UserRepositoryImpl implements UserRepository {
           results: defaultResultNumber,
         },
       });
-      const usersData = response.data.results;
 
-      const users: UserEntity[] = usersData.map((userData: any) => ({
+      this.usersData = response.data.results;
+
+      const users: UserEntity[] = this.usersData.map((userData: any) => ({
         name: userData.name,
         email: userData.email,
         cell: userData.cell,
@@ -39,5 +42,20 @@ export class UserRepositoryImpl implements UserRepository {
       console.error('Error fetching users:', error);
       throw error; // You may want to handle this error more gracefully in a real application
     }
+  }
+  async findOne(email: string): Promise<UserEntity> {
+    if (this.usersData.length === 0) {
+      throw new Error('No users found');
+    }
+
+    const foundUser: UserEntity = this.usersData.find(
+      (user) => user.email === email,
+    ) as UserEntity;
+
+    if (!foundUser) {
+      throw new Error('User not found');
+    }
+
+    return foundUser;
   }
 }

@@ -9,7 +9,7 @@ export class FindSingleUserUseCase {
 
   async execute(
     email: string,
-  ): Promise<UserEntity[]> {
+  ): Promise<UserEntity> {
     return this.userRepository.findOne(email);
   }
 }

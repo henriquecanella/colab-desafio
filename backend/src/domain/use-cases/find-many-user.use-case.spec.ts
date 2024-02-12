@@ -6,7 +6,7 @@ describe('FindManyUsersUseCase', () => {
     const userRepository = new MockUserRepository();
     const findUsersUseCase = new FindManyUsersUseCase(userRepository);
 
-    const users = await findUsersUseCase.execute(2);
+    const users = await findUsersUseCase.execute('2');
 
     expect(users).toHaveLength(1);
     expect(users[0].email).toBe('klaus-d..binder@example.com');

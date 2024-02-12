@@ -4,6 +4,8 @@ import { UserEntity } from '../../domain/entities/user.entity';
 import { UserRepository } from '../../domain/repositories/user.repository';
 
 export class UserRepositoryImpl implements UserRepository {
+  private usersData: UserEntity[];
+
   async findMany(
     results: string,
     newSeed?: string,
@@ -23,9 +25,9 @@ export class UserRepositoryImpl implements UserRepository {
           results: defaultResultNumber,
         },
       });
-      const usersData = response.data.results;
+      this.usersData = response.data.results;
 
-      const users: UserEntity[] = usersData.map((userData: any) => ({
+      const users: UserEntity[] = this.usersData.map((userData: any) => ({
         name: userData.name,
         email: userData.email,
         cell: userData.cell,

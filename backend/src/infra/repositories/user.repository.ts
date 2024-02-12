@@ -48,7 +48,9 @@ export class UserRepositoryImpl implements UserRepository {
       throw new Error('No users found');
     }
 
-    const foundUser = this.usersData.find((user) => user.email === email);
+    const foundUser: UserEntity = this.usersData.find(
+      (user) => user.email === email,
+    ) as UserEntity;
 
     if (!foundUser) {
       throw new Error('User not found');

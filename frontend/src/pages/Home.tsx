@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import UserList from '../components/UserList';
 import { getUsers } from '../services/api';
-//import { User } from '../types';
+import { User } from '../types';
 
 function Home(): JSX.Element {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [numResults, setNumResults] = useState<number>(10);
   const [genderFilter, setGenderFilter] = useState<string>('all');
@@ -17,9 +17,7 @@ function Home(): JSX.Element {
 
   const fetchUsers = async (): Promise<void> => {
     try {
-      console.log(newSeed);
       const response = await getUsers(numResults, newSeed, genderFilter);
-      console.log(response.data);
       setUsers(response.data);
       setLoading(false);
     } catch (error) {

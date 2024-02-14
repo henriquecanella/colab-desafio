@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-//import { User } from '../types';
+import { User } from '../types';
 
-/*
+
 interface Props {
   users: User[];
 }
-*/
-function UserList({ users }): JSX.Element {
+
+function UserList({ users }: Props): JSX.Element {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       {users.map((user) => (

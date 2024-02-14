@@ -6,17 +6,19 @@ import { getUsers } from '../services/api';
 function Home(): JSX.Element {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [numResults, setNumResults] = useState<number>(10); // Default number of results
-  const [genderFilter, setGenderFilter] = useState<string>('all'); // Default gender filter
+  const [numResults, setNumResults] = useState<number>(10);
+  const [genderFilter, setGenderFilter] = useState<string>('all');
+  const [newSeed, setNewSeed] = useState<number>(0);
 
   // Called twice cause of strictMode
   useEffect(() => {
     fetchUsers();
-  }, []);
+  }, [newSeed]);
 
   const fetchUsers = async (): Promise<void> => {
     try {
-      const response = await getUsers(numResults, 1, genderFilter);
+      console.log(newSeed);
+      const response = await getUsers(numResults, newSeed, genderFilter);
       console.log(response.data);
       setUsers(response.data);
       setLoading(false);
@@ -27,6 +29,7 @@ function Home(): JSX.Element {
   };
 
   const handleGenerateNewResults = (): void => {
+    setNewSeed(1);
     fetchUsers();
   };
 
